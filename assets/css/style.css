@@ -40,23 +40,23 @@ body{
     align-items: center;
 }
 .loader{
-    animation: fadein 5s linear infinite;
+    animation: 6.5s fadein linear infinite;
 }
 .loader-1{
     opacity: 0;
-    animation-delay: 1s;
+    animation-delay: 1.5s;
 }
 .loader-2{
     opacity: 0;
-    animation-delay: 2s; 
+    animation-delay: 2.5s; 
 }
 .loader-3{
     opacity: 0;
-    animation-delay: 3s;
+    animation-delay: 3.5s;
 }
 .loader-4{
     opacity: 0;
-    animation-delay: 4s; 
+    animation-delay: 4.5s; 
 }
 @keyframes fadein{
     0%{

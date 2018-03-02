@@ -148,10 +148,10 @@ var game = {
 game.startGame();
 
 $('.instructions').on('click', () => {
-    $('.inst').fadeToggle(1000, 'linear');
+    $('.inst').toggle();
     game.reset();
 });
 $('.close').on('click', ()=>{
-    $('.inst').fadeToggle(1000, 'linear')
+    $('.inst').toggle();
     game.reset();
 })
