@@ -55,6 +55,7 @@ var game = {
     timeOut : null,
     startGame : function(){
         this.setQuestion();
+        $('.reset-game').css('display', 'none');
         
     },
     setQuestion : function(){
@@ -116,6 +117,7 @@ var game = {
     },
     reset: function(){
         let self = this;
+        $('.reset-game').css('display', 'flex');
         setTimeout(function(){
             self.gameData = cloneTrivias(trivias);
             self.correctCounter = 15;
@@ -144,3 +146,12 @@ var game = {
 }
 
 game.startGame();
+
+$('.instructions').on('click', () => {
+    $('.inst').fadeToggle(1000, 'linear');
+    game.reset();
+});
+$('.close').on('click', ()=>{
+    $('.inst').fadeToggle(1000, 'linear')
+    game.reset();
+})
