@@ -45,8 +45,6 @@ function cloneTrivias(triv){
     return obj;
 }
 
-var countDown;
-var transitionInterval;
 
 
 var game = {
@@ -89,8 +87,10 @@ var game = {
             $('.choices').append(`<button class="choice btn btn-primary btn-block" id="${data}">${data}</button>`)
         });
         $('.choice').on('click', function(){
+            
             if($(this).attr('id') === self.currentData.answer){
                 self.displayAnswer("Congratulations! The correct answer is ");
+                $(this).removeClass("btn-primary").addClass("btn-success");
                 clearInterval(self.countDown);
                 self.timeOut = setTimeout(function(){
                     self.setQuestion();
@@ -100,6 +100,7 @@ var game = {
                 
             }else{
                 self.displayAnswer("Too bad, try next question.. the correct answer is ");
+                $(this).removeClass("btn-primary").addClass("btn-danger");
                 clearInterval(self.countDown);
                 self.timeOut = setTimeout(function(){
                     self.setQuestion();
@@ -129,7 +130,7 @@ var game = {
         this.countDown = setInterval(function(){
             $('.timer').text(self.correctCounter);
             self.correctCounter--;
-            if(self.correctCounter === 0){
+            if(self.correctCounter < 0){
                 clearInterval(self.countDown);
                 self.displayAnswer("Times up! the correct answer is ");
                 self.timeOut = setTimeout(function(){
